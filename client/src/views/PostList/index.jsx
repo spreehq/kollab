@@ -14,7 +14,7 @@ const categoryQuery = gql`
       heroUrl
       logoUrl
       ctaText
-      url
+      singleLiner
     }
   }
 `
@@ -34,7 +34,7 @@ class ReportObstruction extends React.Component {
         const removeExitIntent = exitIntent({
             threshold: 50,
             maxDisplays: 2,
-            eventThrottle: 100,
+            eventThrottle: 3000,
             onExitIntent: () => {
                 this.setState({visible: true})
             }
@@ -46,19 +46,19 @@ class ReportObstruction extends React.Component {
 
         return (
             <>
-            <Menu right isOpen={this.state.visible} noOverlay customBurgerIcon={ false }>
+            <Menu right isOpen={this.state.visible} noOverlay customBurgerIcon={ false } width={400}>
             {data.search && data.search.map((brand,i) => (
                 <>
                 <Image src={brand.heroUrl}/>
                 <br/>
                 <Image src={brand.logoUrl}/>
                 <br/>
+                <p>{brand.singleLiner}</p>
                 <a target="_blank" href={brand.url}><Button>{brand.ctaText}</Button></a>
                 <Divider/>
                 </>
                 )
             )}
-            
                 </Menu>
             </>
         )

@@ -40,6 +40,7 @@
   top: 36px;
 }
 
+
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
@@ -84,7 +85,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
   padding: 0.8em;
 }
 
